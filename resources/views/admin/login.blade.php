@@ -48,22 +48,36 @@
           <div class="col-lg-8">
             <div class="card-group d-block d-md-flex row">
               <div class="card col-md-7 p-4 mb-0">
-                <form method="POST" id="loginForm">
+                
+                <form method="POST" id="loginForm" action="{{ route('admin.login.submit') }}">
                     @csrf
                 <div class="card-body">
                   <h1>Login</h1>
                   <p class="text-medium-emphasis">Sign In to your account</p>
+                  {{-- @if ($errors->any())
+                  <div class="alert alert-danger">
+                      {!! implode('', $errors->all('<div>:message</div>')) !!}
+                  </div>
+                   @endif --}}
+
+                  @if ($errors->any())
+                      @foreach ($errors->all() as $error)
+                      <p class="alert alert-danger">{{$error}}</p>
+                         
+                      @endforeach
+                  @endif
+                  
                   <div class="input-group mb-3"><span class="input-group-text">
                       <svg class="icon">
                         <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-user') }}"></use>
                       </svg></span>
-                    <input class="form-control" type="text" placeholder="Email">
+                    <input class="form-control" name="email" type="text" placeholder="Email">
                   </div>
                   <div class="input-group mb-4"><span class="input-group-text">
                       <svg class="icon">
                         <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-lock-locked') }}"></use>
                       </svg></span>
-                    <input class="form-control" type="password" placeholder="Password">
+                    <input class="form-control" name="password" type="password" placeholder="Password">
                   </div>
                   <div class="row">
                     <div class="col-6">

@@ -14,5 +14,6 @@ Route::get('/', function () {
 Route::prefix('admin')->name('admin.')->group(function () {
       //without login
       Route::get('/login', [LoginController::class,'index'])->name('login');
+      Route::post('/login/submit', [LoginController::class,'adminLogin'])->name('login.submit');
 
 });
