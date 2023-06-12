@@ -66,7 +66,10 @@
                          
                       @endforeach
                   @endif
-                  
+                    @if (session('loginError'))
+                    <p class="alert alert-danger">{{session('loginError')}}</p>
+                        
+                    @endif
                   <div class="input-group mb-3"><span class="input-group-text">
                       <svg class="icon">
                         <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-user') }}"></use>

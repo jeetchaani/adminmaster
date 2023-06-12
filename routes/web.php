@@ -15,5 +15,17 @@ Route::prefix('admin')->name('admin.')->group(function () {
       //without login
       Route::get('/login', [LoginController::class,'index'])->name('login');
       Route::post('/login/submit', [LoginController::class,'adminLogin'])->name('login.submit');
+      Route::get('/logout',[LoginController::class,'logout'])->name('logout');
+
+      Route::middleware(['admin'])->group(function () {
+        
+        Route::get('/dashboard', function(){
+            return view('admin.dashboard');
+         })->name('dashboard');
+
+
+      });
+    
+      
 
 });

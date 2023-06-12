@@ -23,7 +23,16 @@ class LoginController extends Controller
            $credentials=$request->only('email','password');
               if(Auth::guard('admin')->attempt($credentials))
               {
-                return "yes";     
+                return redirect()->route('admin.dashboard');   
               }
+              else {
+                 return redirect()
+                 ->route('admin.login')
+                 ->with('loginError','Please Enter Correct Email or Password..');
+              }
+    }
+    public function logout(){
+             Auth::guard('admin')->logout();
+        return redirect()->route('admin.login');
     }
 }

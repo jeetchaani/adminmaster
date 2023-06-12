@@ -1,10 +1,10 @@
 <?php
 
 namespace Database\Seeders;
-
+//use Illuminate\Support\Facades\Hash;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use App\Models\Admin;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -18,5 +18,10 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        Admin::create([
+            'name'=> 'Jeet',
+            'email'=>'admin@gmail.com',
+            'password'=>bcrypt('123456'),  
+        ]);
     }
 }
