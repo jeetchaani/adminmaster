@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\LoginController;
+use App\Http\Controllers\admin\UserController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,6 +23,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/dashboard', function(){
             return view('admin.dashboard');
          })->name('dashboard');
+       
+        Route::get('/users',[UserController::class,'users'])->name('users');
+
+        Route::get('/user/add',function(){
+                    return view('admin.add_user');
+        })->name('add.user');
+            //add new user
+
+        Route::post('/user/add', [UserController::class,'addUser'])->name('submit.user');    
 
 
       });
