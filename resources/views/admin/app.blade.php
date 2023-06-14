@@ -32,6 +32,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism.css">
     <link href="{{ asset('css/examples.css') }}" rel="stylesheet">
     <link href="{{ asset('vendors/@coreui/chartjs/css/coreui-chartjs.css') }}" rel="stylesheet">
+    <style>
+       .w-5 {
+        display: none !important;
+       }
+    </style>
   </head>
   <body>
  @include('admin.navbar')
