@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\LoginController;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\admin\ImageController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -39,6 +40,16 @@ Route::prefix('admin')->name('admin.')->group(function () {
         
         Route::get('/user/delete',[UserController::class,'deleteUser'])
         ->name('user.delete');
+
+        Route::get('/images',[ImageController::class,'imagesLoad'])->name('images');
+
+        Route::prefix('image')->group(function () {
+                Route::get('/add',[ImageController::class,'addImages'])->name('image.add');
+                Route::get('/delete',[ImageController::class,'deleteImage'])->name('image.delete');
+        });
+
+        Route::post('/add',[ImageController::class,'imageUpload'])->name('submit.image');
+        
  
       });
     

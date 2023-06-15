@@ -6,6 +6,7 @@
       
       <li class="nav-item"><a class="nav-link" href="{{ route('admin.dashboard') }}"> Dashboard</a></li>
       <li class="nav-item"><a class="nav-link" href="{{ route('admin.users') }}"> Users</a></li>
+      <li class="nav-item"><a class="nav-link" href="{{ route('admin.images') }}"> Images</a></li>
     </ul>
 
   </div>
