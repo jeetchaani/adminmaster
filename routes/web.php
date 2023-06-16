@@ -20,6 +20,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
       Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
       Route::middleware(['admin'])->group(function () {
+
+        //login with google
+
+        Route::get('/google/login',[LoginController::class,'redirectToGoogle'])->name('google');
+
+        Route::get('/google/callback',[LoginController::class,'handleGoogleCallback']);
         
         Route::get('/dashboard', function(){
             return view('admin.dashboard');

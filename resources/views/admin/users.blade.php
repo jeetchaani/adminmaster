@@ -4,16 +4,23 @@ Users
 @endsection
 @section('content')
 <div style="align-items: center;">
+  <span style="padding-right: 20px;">
     <a href="{{ route('admin.add.user') }}">
     <button class="btn btn-success">Add</button>
     </a>
+  </span>
+  <span>
+    <a href="{{ route('admin.google') }}">
+      <button class="btn btn-success">Login With Google</button>
+      </a>
+  </span>
 </div>
 <div class="tab-content rounded-bottom">
               @if (session('msg'))
                <p class="alert alert-success"> {{session('msg')}} </p>
               @endif
               @if(session('delete'))
-              <p class="alert alert-success"> {{session('delete')}} </p>
+              <p class="alert alert-danger"> {{session('delete')}} </p>
               @endif
     <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-557">
       <table class="table">
