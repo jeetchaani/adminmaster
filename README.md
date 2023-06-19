@@ -4,3 +4,6 @@
 - Table Joins
 - File Uplaod/Delete
 - Template Header Footer NavBar with Yield,Section,Extends
+- Login With Google
+- Custom Route
+- Custom 404 Page
