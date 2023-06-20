@@ -7,3 +7,4 @@
 - Login With Google
 - Custom Route
 - Custom 404 Page
+- API For Login with bearer token (time set, abilities set)
