@@ -36,11 +36,11 @@ class LoginController extends Controller
                         $user = Auth::guard('admin')->user();
 
                         // Generate and return an API token for the user
-                        $expiresAt = Carbon::now()->addHours(2); // Set expiration time to 2 hours
+                        //$expiresAt = Carbon::now()->addHours(2); // Set expiration time to 2 hours
 
-                        $token = $user->createToken('AdminToken', ['admin'])->accessToken;
-                        $token->expires_at = $expiresAt;
-                        $token->save();  
+                        $token = $user->createToken('AdminToken', ['admin'])->plainTextToken;
+                        // $token->expires_at = $expiresAt;
+                        // $token->save();  
 
                         return response()->json([
                                 'status'=>true,
@@ -62,5 +62,4 @@ class LoginController extends Controller
             }
 
     }
-
 }
